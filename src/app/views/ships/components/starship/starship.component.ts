@@ -5,10 +5,14 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './starship.component.html',
   styleUrls: ['./starship.component.scss']
 })
-export class StarshipComponent{
+export class StarshipComponent implements OnInit{
 
-  @Input() starShip: any;
+  @Input() ship: any;
 
   constructor() { }
+
+  ngOnInit(): void {
+   console.log('ship', this.ship);
+  }
 
 }

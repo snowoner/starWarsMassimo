@@ -14,7 +14,9 @@ export class ShipsService {
    * @param page api page
    */
   getShips(page?: number): Observable<any> {
-    const apiUrl = `https://swapi.dev/api/starships/?page=${page ? page : 1}`;
+    console.log('What page i get ', page);
+    let apiUrl = `https://swapi.dev/api/starships/?page=${page ? page : 1}`;
+    console.log('url', apiUrl);
     return this.httpClient.get(apiUrl);
   }
 }

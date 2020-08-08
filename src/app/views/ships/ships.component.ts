@@ -1,9 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { ShipsService } from '../../services/ships/ships.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject, BehaviorSubject } from 'rxjs';
 import { appAnimations } from 'src/app/core/animations/animations';
-import { PageEvent } from '@angular/material/paginator';
+import { PageEvent, MatPaginator } from '@angular/material/paginator';
 import { Pagination } from '../../core/models/pagination';
 
 @Component({
@@ -19,21 +19,38 @@ export class ShipsComponent implements OnInit, OnDestroy {
   ships: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   ships$ = this.ships.asObservable();
 
-  pagination: Pagination = { page: 1};
+  pagination: Pagination;
+
+  imageUrl = 'https://starwars-visualguide.com/assets/img/starships/';
+
+  @ViewChild(MatPaginator) matPaginator: MatPaginator;
+
   constructor(private shipsService: ShipsService) { }
 
   ngOnInit(): void {
-    this.shipsService.getShips().pipe(
-      takeUntil(this.destroy$)
-    ).subscribe(data => {
-      const ships = [];
-      console.log('Data aviable', data);
-    });
+    this.getShips();
+    this.pagination = {page: 0, pageSize: 10};
   }
 
   ngOnDestroy(): void {
-      this.destroy$.next();
-      this.destroy$.complete();
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  getShips(page?: number): void {
+    this.shipsService.getShips(page ? page : 1).pipe(
+      takeUntil(this.destroy$)
+    ).subscribe(data => {
+      const ships = [];
+      data.results.forEach((ship: any) => {
+        ship.imageUrl =
+          `${this.imageUrl}${ship.url.split('/')[ship.url.split('/').length - 2]}.jpg`;
+        ships.push(ship);
+      });
+      this.ships.next(ships);
+      this.pagination.total = data.count;
+      console.log('Data aviable', data);
+    });
   }
 
   /**
@@ -42,7 +59,7 @@ export class ShipsComponent implements OnInit, OnDestroy {
    */
   changePage(event: PageEvent): void {
     console.log('Pagination', event);
-    this.pagination = { page: event.pageIndex };
-    this.shipsService.getShips(this.pagination.page);
+    this.pagination = { page: event.pageIndex, pageSize: event.pageSize };
+    this.getShips(this.pagination.page + 1);
   }
 }
