@@ -1,0 +1,52 @@
+@import "./../../../../styles/colors";
+
+.sidebar {
+  position: fixed;
+  width: 70px;
+  margin: auto;
+  top: 143px;
+  border-radius: 5px;
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.sidebar__item {
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 55px;
+  margin: 5px;
+  font-size: 18px;
+  color: $snorlax;
+  cursor: pointer;
+  transition: 0.2s all;
+}
+.sidebar__item:hover {
+  color: $pacificBridge;
+}
+.sidebar__item--active {
+  color: $pacificBridge !important;
+}
+
+.sidebar__item__badge {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  position: fixed;
+  background-color: $dragonsBlood;
+  margin-top: -10px;
+  margin-left: 16px;
+  font-size: 8px;
+  color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto';
+  font-weight: 600;
+}

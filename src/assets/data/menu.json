@@ -1,0 +1,35 @@
+[
+    {
+        "name": "Content",
+        "roles": [
+            "ROLE_ADMIN",
+            "ROLE_GUEST"
+        ],
+        "childs": [
+            {
+                "id": 1,
+                "name": "Home",
+                "icon": "aui-icon-home-large",
+                "route": "/home",
+                "roles": [
+                    "ROLE_GUEST",
+                    "ROLE_ADMIN"
+                ]
+            }     
+        ]
+    },
+    {
+        "name": "Administration",
+        "roles": [
+            "ROLE_ADMIN"
+        ],
+        "childs": [
+            {
+                "id": 1,
+                "name": "Settings",
+                "icon": "aui-icon-groups-large",
+                "route": "/administration/settings"
+            }
+        ]
+    }
+]

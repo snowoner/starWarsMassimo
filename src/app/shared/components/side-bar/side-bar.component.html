@@ -1,0 +1,14 @@
+<div class="sidebar">
+    <div class="sidebar__item" [routerLink]="['/home']" routerLinkActive="sidebar__item--active"
+        [matTooltip]="'Home'" matTooltipPosition="after">
+        <fa-icon [icon]="faHome"></fa-icon>
+    </div>
+    <div class="sidebar__item" [routerLink]="['/list/basic/1']" routerLinkActive="sidebar__item--active"
+        [matTooltip]="'Ships'" matTooltipPosition="after">
+        <fa-icon [icon]="faRocket"></fa-icon>
+    </div>
+    <div class="sidebar__item" [routerLink]="['/list/report/1']" routerLinkActive="sidebar__item--active"
+        [matTooltip]="'Test'" matTooltipPosition="after">
+        <fa-icon [icon]="faCog"></fa-icon>
+    </div>   
+</div>
