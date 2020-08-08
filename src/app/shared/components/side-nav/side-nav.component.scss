@@ -18,6 +18,10 @@ mat-sidenav.mat-closed.mat-locked-open-add-active {
     width: 85vw !important;
     max-width: 280px !important;
 }
+
+.icon {
+    color: $gray;
+}
 .sidenav {
     color: $white !important;
     overflow-y: scroll;
@@ -48,7 +52,7 @@ mat-sidenav.mat-closed.mat-locked-open-add-active {
         }
         &__section-name {
             font-size: 16px;
-            color: $gray !important;
+            color: black !important;
         }
         &__option-name {
             padding: 8px 0;
@@ -62,7 +66,8 @@ mat-sidenav.mat-closed.mat-locked-open-add-active {
             color: $primary;
             font-size: 14px;
             &:hover {
-                color: $white !important;
+                color: $gray !important;
+                font-size: 20px;
             }
         }
         &__option-name:last-child {

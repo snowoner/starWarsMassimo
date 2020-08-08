@@ -1,0 +1,15 @@
+<main [@animate]="{ value: '*', params: { y: '50px', delay: '400ms' } }">
+    <div class="row h-100 justify-content-center mt-4">
+        <h2>Massimo Dutti &nbsp; </h2>
+        <h2 class="font-italic">Star Wars &nbsp; </h2>
+        <h2>Ships</h2>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 mt-4" *ngFor="let ship of (shipsService.ships$ | async)">
+            <app-starship [ship]="ship"></app-starship>
+        </div>
+    </div>
+    <mat-paginator #matPaginator [pageSizeOptions]="[5, 10, 20, 50]" [length]="pagination.total"
+        [pageIndex]="pagination.page" (page)="changePage($event)">
+    </mat-paginator>
+</main>

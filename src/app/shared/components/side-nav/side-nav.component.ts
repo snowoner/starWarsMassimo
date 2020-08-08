@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { SideNavService } from '../../../services/side-nav/side-nav.service';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
+import { faHome, faRocket } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-side-nav',
@@ -10,6 +11,9 @@ import { AuthenticationService } from 'src/app/services/authentication/authentic
 })
 export class SideNavComponent implements OnInit {
 
+
+  faHome = faHome;
+  faRocket = faRocket;
   /**
    *
    * @param sideNavService Inject sideNavService to handle sideNav state and mode

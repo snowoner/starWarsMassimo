@@ -22,7 +22,10 @@
                             <a class="menu__option-name" [routerLink]="[opt.route]"
                                 routerLinkActive="router-link-active" [routerLinkActiveOptions]="{exact:true}"
                                 (click)="sideNavService.toggleSideNav()">
-                                <span>{{opt.name}}</span>
+                                <div class="d-flex align-items-center">
+                                    <span class="mr-2">{{opt.name}}</span>
+                                    <mat-icon class="icon">{{opt.icon}}</mat-icon>
+                                </div>
                             </a>
                         </ng-container>
                     </ng-container>
