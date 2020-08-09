@@ -1,0 +1,26 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <div class="w-100 d-flex justify-content-between">
+            <section>
+                <svg class="burger-menu icon pointer" *ngIf="(sideNavService.mode$ | async) === 'over'"
+                    (click)="sideNavService.toggleSideNav()">
+                    <use xlink:href="/assets/icons/sprite.svg#aui-icon-off-canvas-large"></use>
+                </svg>
+            </section>
+            <section class="w-100 d-flex justify-content-end align-items-center">
+             
+                <div class="horizontal-divider mr-3"></div>
+                <div class="user-container d-flex align-items-center pointer" [matMenuTriggerFor]="profile">
+                    <p class="user__username d-flex align-items-center mr-2">
+                        {{(authenticationService.user$ | async)?.name}}
+                        <mat-icon class="icon">expand_more</mat-icon>
+                    </p>
+                </div>
+               
+                <mat-menu [overlapTrigger]="false" #profile="matMenu" xPosition="before">                   
+                    <span mat-menu-item (click)="authenticationService.logout()">Cerrar sesión</span>
+                </mat-menu>
+            </section>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

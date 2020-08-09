@@ -1,0 +1,39 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav [mode]="sideNavService.mode$ | async" [opened]="sideNavService.opened$ | async"
+        color="primary">
+        <div class="sidenav p-4">
+            <div class="sidenav__brand d-flex align-items-start justify-content-between">
+                <div class="d-flex flex-column align-items-center">
+                    <img class="logo" src="./assets/images/logo.png" alt="">
+                    <p class="mb-0 mt-4"><img class="logo-slogan--image" src="./assets/images/sw_logo.png" alt=""></p>
+                    
+                </div>
+                <svg class="sidenav__close-icon" (click)="sideNavService.toggleSideNav()"
+                    *ngIf="(sideNavService.mode$ | async) === 'over'">
+                    <use xlink:href="/assets/icons/sprite.svg#aui-icon-cancel-large">
+                    </use>
+                </svg>
+            </div>
+            <div class="menu">
+                <ng-container *ngFor="let section of sideNavService.navigationOptions$ | async">
+                    <ng-container *ngIf="authenticationService.userCan(section.roles) | async">
+                        <p class="menu__section-name mb-1 mt-3">{{section.name}}</p>
+                        <ng-container *ngFor="let opt of section.childs">
+                            <a class="menu__option-name" [routerLink]="[opt.route]"
+                                routerLinkActive="router-link-active" [routerLinkActiveOptions]="{exact:true}"
+                                (click)="sideNavService.toggleSideNav()">
+                                <div class="d-flex align-items-center">
+                                    <span class="mr-2">{{opt.name}}</span>
+                                    <mat-icon class="icon">{{opt.icon}}</mat-icon>
+                                </div>
+                            </a>
+                        </ng-container>
+                    </ng-container>
+                </ng-container>
+            </div>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <ng-content></ng-content>
+    </mat-sidenav-content>
+</mat-sidenav-container>

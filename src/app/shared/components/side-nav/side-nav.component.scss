@@ -1,0 +1,83 @@
+@import "./../../../../styles/colors.scss";
+@import "./../../../../styles/variables.scss";
+
+mat-sidenav {
+    position: fixed;
+    border-right: solid 1px $secondary;
+    background-color: $white;
+}
+mat-sidenav-container {
+    position: relative;
+    top: 64px;
+    background: inherit !important;
+}
+mat-sidenav,
+mat-sidenav.md-locked-open,
+mat-sidenav.mat-closed.mat-locked-open-add-active {
+    min-width: 200px !important;
+    width: 85vw !important;
+    max-width: 280px !important;
+}
+
+.icon {
+    color: $gray;
+}
+.sidenav {
+    color: $white !important;
+    overflow-y: scroll;
+    &__brand {
+        line-height: 1.4;
+        .logo {
+            margin: -23px;
+        }
+        .logo-slogan--image {
+            width: 131px;
+        }
+    }
+    &__close-icon {
+        width: 50px;
+        height: 50px;
+        color: $aluminumSilver;
+        margin-right: -12px;
+        cursor: pointer;
+    }
+    .menu {
+        margin: 1em 0 0 0;
+        color: $aluminumSilver;
+        > div {
+            margin-bottom: 2em;
+        }
+        > div:last-child {
+            margin-bottom: 0 !important;
+        }
+        &__section-name {
+            font-size: 16px;
+            color: black !important;
+        }
+        &__option-name {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(179, 179, 179, 0.1);
+            transition: all 0.2s;
+            text-decoration: none !important;
+            font-weight: 100;
+            cursor: pointer;
+            color: $primary;
+            font-size: 14px;
+            &:hover {
+                color: $gray !important;
+                font-size: 20px;
+            }
+        }
+        &__option-name:last-child {
+            border: none;
+        }
+    }
+}
+
+@media (max-width: $screen-sm-min) {
+    .mat-sidenav-container {
+        top: 56px !important;
+    }
+}

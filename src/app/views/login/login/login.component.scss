@@ -1,0 +1,29 @@
+main{
+  height:100%;
+  background-color: white !important;
+}
+
+.logo-slogan--image {
+  width: 131px;
+}
+
+// #image-color {
+//     height: 100%;
+//     width: 100%;
+//     background-color: rgba(75, 75, 75, 0.85);
+// }
+
+#logo-area {
+  height: 7em;
+  transition: all 0.25s;
+}
+
+.slide-toggle-input label {
+  //   color: rgba(0, 0, 0, 0.6);
+  color: rgb(111, 113, 124);
+  font-size: 13px;
+}
+
+mat-error{
+  font-size: 0.8em;
+}

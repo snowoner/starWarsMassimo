@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Content",
+        "childs": [
+            {
+                "id": 1,
+                "name": "Home",
+                "icon": "home",
+                "route": "/home"
+            },
+            {
+                "id": 2,
+                "name": "Ships",
+                "icon": "toys",
+                "route": "/ships"
+            }    
+        ]
+    }
+]
