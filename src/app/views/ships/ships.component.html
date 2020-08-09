@@ -5,15 +5,16 @@
         <h2>Ships</h2>
     </div>
     <ng-container *ngIf="ships$ | async; else loading">
-        <div class="row d-flex justify-content-center align-items-center p-3">
+        <div class="row d-flex justify-content-center align-items-center p-3 spaced">
             <div class="col-sm-6 col-md-4 mt-4" *ngFor="let ship of (ships$ | async)">
                 <app-starship [ship]="ship"></app-starship>
             </div>
         </div>
-
-        <mat-paginator class=" d-flex justify-content-center" #matPaginator [pageSizeOptions]="[10]"
-            [length]="pagination.total" [pageIndex]="pagination.page" (page)="changePage($event)">
-        </mat-paginator>
+        <div class="footer mt-4">
+            <mat-paginator class="d-flex justify-content-center" #matPaginator [pageSizeOptions]="[10]"
+                [length]="pagination.total" [pageIndex]="pagination.page" (page)="changePage($event)">
+            </mat-paginator>
+        </div>
 
     </ng-container>
     <ng-template #loading>

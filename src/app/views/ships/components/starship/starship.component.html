@@ -1,18 +1,12 @@
-<mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title>{{this.ship.name}}</mat-card-title>
-      <mat-card-subtitle>{{this.ship.model}}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image [src]="this.ship.imageUrl" alt="Photo of a ship">
-    <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
+<mat-card [@animate]="{ value: '*', params: { y: '50px', delay: '400ms' } }" class="example-card" (click)="openDialog()">
+  <mat-card-header>
+    <mat-card-title>{{this.ship.name}}</mat-card-title>
+    <mat-card-subtitle>{{this.ship.model}}</mat-card-subtitle>
+  </mat-card-header>
+  <img class="border" mat-card-image [src]="this.ship.imageUrl" onerror="if (this.src != 'this.ship.imageUrl') this.src = '../../../assets/images/error.png';">
+  <mat-card-content>
+    <p><span class="font-weight-bold">StarShip class:</span> {{this.ship.starship_class}}</p>
+    <p><span class="font-weight-bold">Passengers:</span> {{this.ship.passengers}}</p>
+    <p><span class="font-weight-bold">Max atmosphering speed:</span> {{this.ship.max_atmosphering_speed}}</p>
+  </mat-card-content>
+</mat-card>
