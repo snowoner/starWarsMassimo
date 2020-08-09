@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MainLoginComponent } from './login.component';
+import { LoginComponent } from './login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from 'src/app/material/material.module';
@@ -9,9 +9,9 @@ import { AuthenticationGuard } from 'src/app/core/components/guards/authenticati
 import { AuthenticationService } from 'src/services/authentication/authentication.service';
 import { AuthenticationServiceMock } from 'src/assets/mocks/authentication/authentication-service';
 
-describe('MainLoginComponent', () => {
-  let component: MainLoginComponent;
-  let fixture: ComponentFixture<MainLoginComponent>;
+describe('LoginComponent', () => {
+  let component: LoginComponent;
+  let fixture: ComponentFixture<LoginComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -24,7 +24,7 @@ describe('MainLoginComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        MainLoginComponent
+        LoginComponent
       ],
       providers: [
         AuthenticationGuard,
@@ -35,7 +35,7 @@ describe('MainLoginComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MainLoginComponent);
+    fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

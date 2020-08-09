@@ -2,13 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
+import { appAnimations } from 'src/app/core/animations/animations';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './main-login.component.html',
-  styleUrls: ['./main-login.component.scss']
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
+  animations: appAnimations
 })
-export class MainLoginComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
   /**
    * Contains login form
@@ -27,15 +29,19 @@ export class MainLoginComponent implements OnInit {
    * This is method is used to login the user entered
    */
   login(): void {
-    // this.authExternService.login(this.loginForm.value).subscribe(
-    //   logged => {
-    //     this.goToHome();
-    //   },
-    //   error => {
-    //     this.setWrongCredentialsError();
-    //   }
+    this.authenticationService.login(this.loginForm.value).subscribe(logged => {
+      console.log('Is logged', logged);
+      if (logged) {
+        this.goToHome();
+      } else {
+        this.setWrongCredentialsError();
+      }
+    },
+      error => {
+        this.setWrongCredentialsError();
+      }
 
-    // );
+    );
   }
 
   /**
@@ -44,7 +50,7 @@ export class MainLoginComponent implements OnInit {
   private initForm(): FormGroup {
 
     return new FormGroup({
-      username: new FormControl(''),
+      userName: new FormControl(''),
       password: new FormControl('')
     });
   }
@@ -53,7 +59,7 @@ export class MainLoginComponent implements OnInit {
    * This function is used to redirect the user's logged to the dashboard
    */
   private goToHome(): void {
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['ships']);
   }
 
   /**
@@ -62,5 +68,10 @@ export class MainLoginComponent implements OnInit {
   private setWrongCredentialsError(): void {
     this.loginForm.setErrors({ 'wrong-credentials': true });
   }
+
+  signUp(): void {
+    this.router.navigate(['/login/register']);
+  }
+
 
 }

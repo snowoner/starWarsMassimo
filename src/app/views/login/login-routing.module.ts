@@ -1,14 +1,25 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MainLoginComponent } from './login/login.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register/register.component';
 
 const routes: Routes = [{
   path: '',
   children: [
     {
       path: '',
-      component: MainLoginComponent,
+      redirectTo: 'login',
+      pathMatch: 'full'
+    },
+    {
+      path: '',
+      component: LoginComponent,
       data: { title: 'Login', breadcrumb: 'Login' }
+    },
+    {
+      path: 'register',
+      component: RegisterComponent,
+      data: { title: 'Register', breadcrumb: 'Register' }
     }
   ]
 }];

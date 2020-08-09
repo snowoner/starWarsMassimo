@@ -1,18 +1,10 @@
 main{
   height:100%;
+  background-color: white !important;
 }
 
-#loginImage {
-  background-color: #4b4b4b;
-  background-image: url("/assets/images/backgrounds/FOTOLOGIN.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  border-bottom-width: 5px;
-  border-color: #e0dd00;
-  border-bottom-style: solid;
-  //ATENTTION
-  padding: 0;
+.logo-slogan--image {
+  width: 131px;
 }
 
 // #image-color {
@@ -23,16 +15,6 @@ main{
 
 #logo-area {
   height: 7em;
-  transition: all 0.25s;
-}
-
-#logo {
-  background-image: url("/assets/images/logovgedv-GAS.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  height: 100%;
-  width: 100%;
   transition: all 0.25s;
 }
 

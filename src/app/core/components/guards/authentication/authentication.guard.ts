@@ -11,8 +11,7 @@ export class AuthenticationGuard implements CanActivate {
   constructor(private authenticationService: AuthenticationService) { }
 
   canActivate(): Observable<boolean> {
-    return of(true);
-   // return this.authenticationService.isAuthenticated();
+    return this.authenticationService.isAuthenticated();
   }
 
 }
