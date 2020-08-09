@@ -7,9 +7,18 @@ import { LayoutBasicComponent } from './layout/layout-basic/layout-basic.compone
 
 const routes: Routes = [
   {
+    path: 'login',
+    loadChildren: () => import('./views/login/login.module').then(m => m.LoginModule),
+  },
+  {
     path: '',
     component: LayoutDashboardComponent,
     children: [
+      {
+        path: '',
+        redirectTo: 'ships',
+        pathMatch: 'full'
+      },
       {
         path: 'home',
         loadChildren: () => import('./views/home/home.module').then(m => m.HomeModule),
