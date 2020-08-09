@@ -6,13 +6,14 @@ import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
-
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
     TopBarComponent,
     SideNavComponent,
-    SideBarComponent
+    SideBarComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +25,8 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
   exports: [
     TopBarComponent,
     SideNavComponent,
-    SideBarComponent
+    SideBarComponent,
+    ConfirmationDialogComponent
   ],
   entryComponents: [
   ]

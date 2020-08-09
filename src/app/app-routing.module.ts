@@ -15,6 +15,11 @@ const routes: Routes = [
         loadChildren: () => import('./views/home/home.module').then(m => m.HomeModule),
         canActivate: [AuthenticationGuard]
       },
+      {
+        path: 'ships',
+        loadChildren: () => import('./views/ships/ships.module').then(m => m.ShipsModule),
+        canActivate: [AuthenticationGuard]
+      },
     ]
   },
   {

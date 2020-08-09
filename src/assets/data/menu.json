@@ -9,13 +9,23 @@
             {
                 "id": 1,
                 "name": "Home",
-                "icon": "aui-icon-home-large",
+                "icon": "home",
                 "route": "/home",
                 "roles": [
                     "ROLE_GUEST",
                     "ROLE_ADMIN"
                 ]
-            }     
+            },
+            {
+                "id": 2,
+                "name": "Ships",
+                "icon": "toys",
+                "route": "/ships",
+                "roles": [
+                    "ROLE_GUEST",
+                    "ROLE_ADMIN"
+                ]
+            }    
         ]
     },
     {
@@ -27,7 +37,7 @@
             {
                 "id": 1,
                 "name": "Settings",
-                "icon": "aui-icon-groups-large",
+                "icon": "settings",
                 "route": "/administration/settings"
             }
         ]
