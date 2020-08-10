@@ -93,7 +93,6 @@ export class AuthenticationService {
         this.router.navigate(['/starships']);
         return true;
       } else {
-        console.log('UserLogin', userLogin);
         const currentUser =
           this.registeredUsers.getValue()?.find(x =>
             x.userName === userLogin.userName && x.password === userLogin.password);

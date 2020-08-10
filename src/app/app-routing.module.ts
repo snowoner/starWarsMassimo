@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutDashboardComponent } from './layout/layout-dashboard/layout-dashboard.component';
 import { AuthenticationGuard } from './core/components/guards/authentication/authentication.guard';
-import { NavigationGuard } from './core/components/guards/navigation/navigation.guard';
 import { LayoutBasicComponent } from './layout/layout-basic/layout-basic.component';
 
 const routes: Routes = [
