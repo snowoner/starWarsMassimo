@@ -30,7 +30,6 @@ export class LoginComponent implements OnInit {
    */
   login(): void {
     this.authenticationService.login(this.loginForm.value).subscribe(logged => {
-      console.log('Is logged', logged);
       if (logged) {
         this.goToHome();
       } else {
