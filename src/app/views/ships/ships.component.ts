@@ -49,7 +49,6 @@ export class ShipsComponent implements OnInit, OnDestroy {
       });
       this.ships.next(ships);
       this.pagination.total = data.count;
-      console.log('Data aviable', data);
     });
   }
 
@@ -58,7 +57,6 @@ export class ShipsComponent implements OnInit, OnDestroy {
    * @param event information about pagination
    */
   changePage(event: PageEvent): void {
-    console.log('Pagination', event);
     this.pagination = { page: event.pageIndex, pageSize: event.pageSize };
     this.getShips(this.pagination.page + 1);
   }

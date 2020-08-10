@@ -6,7 +6,7 @@ import { MaterialModule } from 'src/app/material/material.module';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AuthenticationGuard } from 'src/app/core/components/guards/authentication/authentication.guard';
-import { AuthenticationService } from 'src/services/authentication/authentication.service';
+import { AuthenticationService } from '../../../services/authentication/authentication.service';
 import { AuthenticationServiceMock } from 'src/assets/mocks/authentication/authentication-service';
 
 describe('LoginComponent', () => {
